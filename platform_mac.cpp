@@ -74,7 +74,7 @@ public:
 	{
 		Ref<CallingConvention> cc;
 
-		cc = arch->GetCallingConventionByName("cdecl");
+		cc = arch->GetCallingConventionByName("apple-arm64");
 		if (cc)
 		{
 			RegisterDefaultCallingConvention(cc);
@@ -148,6 +148,7 @@ extern "C"
 			platform = new MacArm64Platform(arm64);
 			Platform::Register("mac", platform);
 			BinaryViewType::RegisterPlatform("Mach-O", 9, arm64, platform);
+			BinaryViewType::RegisterPlatform("Mach-O", 0, arm64, platform);
 		}
 
 		return true;
